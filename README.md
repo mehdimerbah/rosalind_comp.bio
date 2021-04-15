@@ -1,2 +1,2 @@
-# rosalind_comp.bio
-This  a repository for suggested solutions to the Computational Biology problems in ROSALIND
+# ROSALIND Computational Biology Solutions
+This  a repository for my suggested solutions to the Computational Biology problems in ROSALIND
