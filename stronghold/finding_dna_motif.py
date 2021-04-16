@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import sys
 import re
+ ## Given a sequence of DNA ACGTCCCTAAGAGAGT and a motif of length <= len(sequence) find all positions this motif occurs in the sequence
+
+
 
 args = sys.argv
 if len(args) == 1:
