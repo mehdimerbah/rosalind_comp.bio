@@ -1,6 +1,6 @@
 
 
-f = open("rosalind_dna.txt", "rt")
+f = open("rosalind_ini.txt", "rt")
 
 listing = []
 for line in f:
