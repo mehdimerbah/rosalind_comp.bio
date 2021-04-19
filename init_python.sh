@@ -17,6 +17,13 @@ try:
     f = open(args[1], 'rt')
 except:
     print('File Not Found!')
-    sys.exit()\n" >> $FILENAME
+    sys.exit()\n
+    ######## Script ########
+    
+    
+    ########################
 
+f.close()\n" >> $FILENAME
+
+chmod u+x $FILENAME
 mv $FILENAME stronghold/
