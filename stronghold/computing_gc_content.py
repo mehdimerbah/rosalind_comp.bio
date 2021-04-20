@@ -8,24 +8,25 @@ if len(args) == 1:
 
 f = open(args[1], 'rt')
 
-def get_gc():            
-    entries = {}
-    for line in f:
-        if '>' in line:
-            seq_id = line.strip()[1:]
-            entries[seq_id] = 0
-        else:
-            stripped = list(line.strip())
-            g_count = stripped.count("G")
-            c_count = stripped.count("C")
-            gc_content = 100*(g_count+c_count)/len(stripped)
-            entries[seq_id] = gc_content
+entries = {}
+for line in f:
+    if '>' in line:
+        seq_id = line.strip()[1:]
+        entries[seq_id] = []
+    else:
+        stripped = list(line.strip("\n"))
+        entries[seq_id].extend(stripped)
 
-    max_value = max(entries.values())
-    index = list(entries.values()).index(max_value)
-    print(entries)
-    print(list(entries.keys())[index]," ",max_value,"%")
 
-get_gc()
+max_gc = 0
+max_gc_key = ""
+for key, val in entries.items():
+    g_count = val.count("G")
+    c_count = val.count("C")
+    gc_content = 100*(g_count+c_count)/float(len(val))
+    if gc_content > max_gc:
+        max_gc = gc_content
+        max_gc_key = key
 
+print("%s\n%.6f" %(max_gc_key, max_gc))
 f.close()
