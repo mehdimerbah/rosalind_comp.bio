@@ -44,14 +44,8 @@ for itr in range(n):
 
 for itr in range(n):
     for key in entries.keys():
-        if(entries[key][itr] == "A"):
-            bases['A'][itr]+=1
-        elif(entries[key][itr] == "G"):
-            bases['G'][itr]+=1
-        elif(entries[key][itr] == "C"):
-            bases['C'][itr]+=1
-        elif(entries[key][itr] == "T"):
-            bases['T'][itr]+=1
+        bases[entries[key][itr]][itr]+=1
+        
 
 consensus = []
 
