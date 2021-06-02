@@ -38,9 +38,10 @@ for key, val in entries.items():
     for i in val:
         mw_dict[key] += AminoDict[i]
 
+dest_file = open("demofile.txt", "wt")
 
 for key, val in mw_dict.items():
-   print("%20s : %4.3f" % (key, val))
+   dest_file.write("%10s : %4.3f\n" % (key, val))
 
 
 
