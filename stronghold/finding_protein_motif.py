@@ -3,11 +3,12 @@
 
 import sys
 import requests
+import re
 query_parameters = {"downloadformat": "fasta"}
 
 
 try:
-    accessions_file = open("protein_motifs.txt", 'rt')
+    accessions_file = open("rosalind_mprt.txt", 'rt')
 except:
     print("File Not Found!")
     sys.exit()
@@ -20,9 +21,19 @@ for accession in accessions_file:
     url = f'http://www.uniprot.org/uniprot/{access_id}.fasta'
     response = requests.get(url, params=query_parameters)
     if response.ok:
-        #preprocess_seq = response.contant.split("\n")
-        accession_seqs[access_id] = response.content.rstrip()
+        preprocess = response.content.decode('utf-8').split('\n')[1:]
+        accession_seqs[accession] = ''.join(preprocess)
+        
 
+motif = r'(?=([N][^P][S|T][^P]))'
 for id, prot_seq in accession_seqs.items():
-    #preprocess_seq = prot_seq
-    print(prot_seq)
+    search = re.search(motif, prot_seq)
+    if search is not None:
+        print(id, end ='')
+        for match in re.finditer(motif, prot_seq):
+            print(match.start()+1, end=' ')
+        print()
+
+
+accessions_file.close()
+
