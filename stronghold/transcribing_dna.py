@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 
 f = open("rosalind_rna.txt", "rt")
 trans = []
