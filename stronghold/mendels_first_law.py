@@ -4,6 +4,9 @@
 import sys
 from scipy.special import comb
 
+## Scipy combinations generates a combination of n objects selecting k
+## ie.: For type of individual select two elements to mate
+
 try:
     input_file = open('mendel_input.txt', 'rt')
 except:
