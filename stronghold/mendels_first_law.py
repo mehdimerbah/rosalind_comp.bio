@@ -49,3 +49,4 @@ probability = round(dominant_combos/total_combos, 5)
 print(probability)
 
 input_file.close()
+sys.exit()
